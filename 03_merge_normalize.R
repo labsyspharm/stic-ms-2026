@@ -1,7 +1,7 @@
 # Step 3: merge all 16 samples and normalize with PFlog1pPF.
 # Normalization must run AFTER merging -- the proportional-fitting target
 # (mean total count) has to be computed across all pooled cells, otherwise
-# each run gets its own target and a run-to-run batch effect is reintroduced.
+
 
 library(Seurat)
 source("normalize_pflog1ppf.R")
@@ -39,13 +39,7 @@ data_slice   <- GetAssayData(seu, assay = "Xenium", layer = "data")[1:20, 1:100]
 View(as.matrix(t(counts_slice)))
 View(as.matrix(t(data_slice)))
 
-#I want a specific sample or genes rather than just the first 100: 
 
-cells_s1 <- colnames(seu)[seu$sample_id == "S25-00422-1"][1:100]
-View(as.matrix(t(GetAssayData(seu, assay = "Xenium", layer = "data")[, cells_s1])))
-
-VlnPlot(seu, features = "A2M", group.by = "sample_id")   # distribution per sample
-DotPlot(seu, features = c("A2M", "ACE2", "ACLY"), group.by = "sample_id")  # mean expr + % detected, several genes at once
 
 
 
