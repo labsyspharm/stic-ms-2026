@@ -7,7 +7,9 @@ Xenium pipeline from raw data are run in order: scripts are numbered.
 `01_load_and_split.R` – load Xenium runs, split multi-specimen slides into samples
 `02_qc.R` – per-sample QC filtering
  `normalisation/03_merge_normalize.R` – merge samples, PFlog1pPF normalisation
- `04_cluster_pflog.R` – PCA, Harmony, clustering on 5,000 cells per sample
+ `04_cluster_pflog.R` – PCA, Harmony, clustering on subset per sample
  `05_project_clusters_full.R` – transfer cluster labels to the full dataset
  `06_full_dataset_pca_umap.R` – PCA, Harmony, UMAP on the full dataset
  `11_histology_annotation_full.R` – assign lesion histology labels from annotation polygons
+ This normalisation was only used for clustering, PCA, UMAP. 
+ Neighborhood and Immune scoring was followed by Seurat normalisation. 
