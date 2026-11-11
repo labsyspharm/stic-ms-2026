@@ -6,10 +6,10 @@ CD8_subset_denominator_CD8_glmm: An example of calculating immune cell subset ou
 Xenium pipeline from raw data are run in order: scripts are numbered. 
 `01_load_and_split.R` – load Xenium runs, split multi-specimen slides into samples
 `02_qc.R` – per-sample QC filtering
- `normalization/03_merge_normalize.R` – merge samples, PFlog1pPF normalization
+ `normalization/03_merge_normalize.R` as well as `normalize_pflog1ppf.R`– merge samples, PFlog1pPF normalization
  `04_cluster_pflog.R` – PCA, Harmony, clustering on subset per sample
  `05_project_clusters_full.R` – transfer cluster labels to the full dataset
  `06_full_dataset_pca_umap.R` – PCA, Harmony, UMAP on the full dataset
  `11_histology_annotation_full.R` – assign lesion histology labels from annotation polygons
  This normalization was only used for clustering, PCA, UMAP. 
- Neighborhood and Immune scoring was followed by Seurat normalization. 
+ Neighborhood and Immune scoring was followed by Seurat normalization and definition of any immune population was not dependent on the cluster labels.  
